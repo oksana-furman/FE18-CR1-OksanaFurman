@@ -20,6 +20,7 @@ body {
         padding: 2rem;
         .item {
             overflow: hidden;
+            position: relative;
             padding: 10px;
             border: 2px;
             border-radius: 15px;
@@ -32,10 +33,21 @@ body {
                     border-radius: 10px;
                 }
             }
-            p {
-                height: 6%;
-                padding: 5px;
-                text-align: center;
+            .itemText{
+                position: absolute;
+                width: 80%;
+                margin-left: 5%;
+                margin-right: 5%;
+                border-radius: 5px;
+                top: 30%;
+                visibility: hidden;
+                background-color: rgba(7, 7, 7, 0.6);
+                p {
+                    // height: 6%;
+                    color: white;
+                    padding: 5px;
+                    text-align: center;
+                }
             }
             // background-image: url("https://cdn.pixabay.com/photo/2022/11/29/15/18/sunset-7624720_960_720.jpg");
             // background-size: cover;
@@ -44,7 +56,9 @@ body {
         .item:hover {
             transform: scale(1.1);
             transition: width 1s, height 1s, transform 1s;
-            ;
+        }
+        .item:hover>.itemText{
+            visibility: visible;
         }
     }
     footer {

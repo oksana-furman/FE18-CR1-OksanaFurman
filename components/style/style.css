@@ -94,6 +94,7 @@ body .container {
 }
 body .container .item {
   overflow: hidden;
+  position: relative;
   padding: 10px;
   border: 2px;
   border-radius: 15px;
@@ -104,14 +105,27 @@ body .container .item a .image {
   height: 94%;
   border-radius: 10px;
 }
-body .container .item p {
-  height: 6%;
+body .container .item .itemText {
+  position: absolute;
+  width: 80%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius: 5px;
+  top: 30%;
+  visibility: hidden;
+  background-color: rgba(7, 7, 7, 0.6);
+}
+body .container .item .itemText p {
+  color: white;
   padding: 5px;
   text-align: center;
 }
 body .container .item:hover {
   transform: scale(1.1);
   transition: width 1s, height 1s, transform 1s;
+}
+body .container .item:hover > .itemText {
+  visibility: visible;
 }
 body footer {
   background-color: rgb(248, 209, 158);

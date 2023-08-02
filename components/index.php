@@ -1,5 +1,6 @@
 <?php
     require "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/db_connect.php";
+    require "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/file_upload.php";
 
     $sql = "SELECT * FROM desserts";
     $result = mysqli_query($connect, $sql);
@@ -7,11 +8,13 @@
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
             // var_dump($row);
+            // href='details.php?id={$row['id']}';
             $body .= "
         <div class='item'>
-            <a href='{$row['link']}' target='_blank'><img src='{$row['picture']}' alt='{$row['name']}' class='image'></a>  
-            <p>{$row['name']}</p>
-
+            <a href='#' target='_blank'><img src='../img/{$row['picture']}' alt='{$row['name']}' class='image'></a>
+            <div class='itemText'>  
+                <p>{$row['name']}</p>
+            </div>
         </div>";
         }
     } else {
