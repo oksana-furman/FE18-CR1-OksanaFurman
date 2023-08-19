@@ -8,10 +8,9 @@
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
             // var_dump($row);
-            // href='details.php?id={$row['id']}';
             $body .= "
         <div class='item'>
-            <a href='#' target='_blank'><img src='../img/{$row['picture']}' alt='{$row['name']}' class='image'></a>
+            <a href='details.php?id={$row['id']}' target='_blank'><img src='../img/{$row['picture']}' alt='{$row['name']}' class='image'></a>
             <div class='itemText'>  
                 <p>{$row['name']}</p>
             </div>

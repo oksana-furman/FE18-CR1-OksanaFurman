@@ -31,30 +31,10 @@ $bg-body: antiquewhite;
         text-align: center;
         text-decoration: none;
     }
-    .dropdown {
-        overflow: hidden;
-        .dropButton {
-            font-size: 30px;
-            border: none;
-            outline: none;
-            color: $text-nav;
-            padding: 14px 16px;
-            background-color: inherit;
-            font-family: 'Great Vibes', cursive;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: $bg-body;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-        a {
-            color: $text-nav;
-            display: block;
-            text-align: left;
-        }
+    a {
+        color: $text-nav;
+        display: block;
+        text-align: left;
     }
 }
 
