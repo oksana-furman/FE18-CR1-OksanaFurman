@@ -13,6 +13,10 @@
             <a href='details.php?id={$row['id']}' target='_blank'><img src='../img/{$row['picture']}' alt='{$row['name']}' class='image'></a>
             <div class='itemText'>  
                 <p>{$row['name']}</p>
+                <div class='btns'>
+                <a href='../actions/update.php?id={$row["id"]}' class='btn btn-warning'>Update</a>
+                <a href='../actions/delete.php?id={$row["id"]}' class='btn btn-danger'>Delete</a>
+            </div>
             </div>
         </div>";
         }
@@ -29,23 +33,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food blog</title>
-    <?php require './boot.php'?>
+    <?php require '../folder/boot.php'?>
 </head>
 
 <body>
     <header>
-        <?php require "./navbar.php" ?>
+        <?php require "../folder/navbar.php" ?>
     </header>
 
     <div>
         <!-- type sorting btns -->
     </div>
-        
+    <div class="btns">
+        <a href="../actions/create.php" class="btn btn-primary">Add a new recipe</a>
+    </div>
+
     <div class="container">
+        
         <?= $body?>
     </div>
 
-    <?php require "./footer.php" ?>
+    <?php require "../folder/footer.php" ?>
 
 </body>
 

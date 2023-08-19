@@ -29,7 +29,11 @@
             <div class='cover2'>
                 <p>{$row['instructions']}.</p>
             </div>
-        </div>";
+            <div class='btns'>
+                <a href='../actions/update.php?id={$row["id"]}' class='btn btn-warning'>Update</a>
+                <a href='../actions/delete.php?id={$row["id"]}' class='btn btn-danger'>Delete</a>
+            </div>
+        </div>"; 
 ?>
 
 <!DOCTYPE html>
@@ -38,14 +42,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Details</title>
-    <?php require './boot.php'?>
+    <?php require '../folder/boot.php'?>
 </head>
 <body>
-    <?php require "./navbar.php" ?>
+    <?php require "../folder/navbar.php" ?>
     <div class="detailsContainer">
     <?= $body?>
     </div>
-
-    <?php require "./footer.php" ?>
+    
+    <?php require "../folder/footer.php" ?>
 </body>
 </html>

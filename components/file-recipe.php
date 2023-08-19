@@ -1,3 +1,10 @@
+<?php
+         require "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/db_connect.php";
+         require "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/file_upload.php";
+
+         
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,48 +13,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe of the Month</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <?php require '../folder/boot.php'?>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <a href="file1.html" id="logoLink">
-                <p id="logoText">Food Blog</p>
-            </a>
-            <div class="dropdown">
-                <button class="dropButton">Sweet</button>
-                <div class="dropdown-content">
-                    <a href="https://electricbluefood.com/category/recipes/sweet/bake/" class="navLink">Bake</a>
-                    <a href="https://electricbluefood.com/category/recipes/sweet/no-bake/" class="navLink">No Bake</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropButton">Savory</button>
-                <div class="dropdown-content">
-                    <a href="https://electricbluefood.com/category/recipes/savoury/salad/" class="navLink">Salad</a>
-                    <a href="https://electricbluefood.com/category/recipes/savoury/soup/" class="navLink">Soup</a>
-                    <a href="https://electricbluefood.com/category/recipes/savoury/fish-meat/" class="navLink">Fish & Meat</a>
-                    <a href="https://electricbluefood.com/category/recipes/savoury/vegetarian/" class="navLink">Vegitarian</a>
-                    <a href="https://electricbluefood.com/category/recipes/savoury/pizza-quiche/" class="navLink">Pizza And Pie</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropButton">Beverages</button>
-                <div class="dropdown-content">
-                    <a href="https://electricbluefood.com/category/recipes/beverages/hot-drinks/" class="navLink">Hot Drinks</a>
-                    <a href="https://electricbluefood.com/category/recipes/beverages/cold-drinks/" class="navLink">Cold Drinks</a>
-                </div>
-            </div>
-            <a href="file-recipe.html" class="navLink">Recipe of the Month</a>
-        </nav>
-    </header>
+    <?php require "../folder/navbar.php" ?>
 
     <div class="container-recipe">
-        <div class="headline">
+        <?= $body?>
+        <!-- <div class="headline">
             <h2>Recipe of the Month</h2>
             <h1>Meyer Lemon Tart with a Layer of Chocolate</h1>
             <img src="https://leitesculinaria.com/wp-content/uploads/2005/04/meyer-lemon-tart-chocolate-layer.jpg" alt="Meyer Lemon Tart with a Layer of Chocolate" id="hero">
@@ -107,18 +81,11 @@
                     refrigerator.
                 </li>
             </ol>
-        </div>
+        </div> -->
 
     </div>
 
-    <footer>
-        <div class="f-div">
-            <a href="#" class="f-link">About</a>
-            <a href="#" class="f-link">FAQ</a>
-            <a href="https://codefactory.wien/en/contact-en/" target="_blank" class="f-link">Contact Us</a>
-        </div>
-        <p class="f-p">Copyright &#169; 2023 Food Blog</p>
-    </footer>
+    <?php require "../folder/footer.php" ?>
 
 </body>
 

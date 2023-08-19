@@ -1,0 +1,45 @@
+.container-recipe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    .headline {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        #hero {
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: rgba(185, 139, 69, 0.2) 0px 7px 9px 0px;
+        }
+    }
+    .recipe {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        div {
+            width: 50%;
+        }
+        ul {
+            li {
+                list-style: none;
+                padding: 10px;
+                input[type=checkbox]:checked+label {
+                    color: grey;
+                }
+            }
+        }
+        .direct {
+            width: 50%;
+            h3 {
+                text-align: center;
+            }
+            ol {
+                li {
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}
