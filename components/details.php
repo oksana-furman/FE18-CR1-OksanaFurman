@@ -1,8 +1,8 @@
 <?php
      require "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/db_connect.php";
-     require "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/file_upload.php";
-     
-     $sql = "SELECT * FROM desserts WHERE id = {$_GET['id']}";
+
+     $id = $_GET['id'];
+     $sql = "SELECT * FROM desserts WHERE id = $id";
      $body = "";
      $result = mysqli_query($connect, $sql);
      $row = mysqli_fetch_assoc($result);
@@ -28,6 +28,7 @@
             <h4 class='text-center mt-4'>Instructions: </h4>
             <div class='cover2'>
                 <p>{$row['instructions']}.</p>
+                <a href='{$row['link']}'>{$row['name']}.</a>
             </div>
             <div class='btns'>
                 <a href='../actions/update.php?id={$row["id"]}' class='btn btn-warning'>Update</a>

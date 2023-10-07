@@ -1,11 +1,11 @@
 <?php
 
-    function file_upload($picture){
+    function file_upload($picture){ #update for different default pictures later
         $result = new stdClass();
         $result->fileName = 'default.png';
-        $result->error = true;
+        $result->error = 1; // true
         $fileName = $picture['name'];
-        $fileTempName = $picture['temp_name'];
+        $fileTempName = $picture['tmp_name'];
         $fileError = $picture['error'];
         $fileSize = $picture['size'];
         $fileExtention = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
@@ -22,6 +22,7 @@
                     if ($fileSize < 500000) { //500kb
                         $fileNewName = uniqid('') . '.' . $fileExtention;
 
+                        // destination is not from this file but from files we're using file update in
                         $destination = "../uploads/$fileNewName";
 
                         if (move_uploaded_file($fileTempName, $destination)) {
