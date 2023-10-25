@@ -36,7 +36,7 @@
         } elseif (!preg_match("/^[a-zA-Z\s]+$/", $first_name)) {
             $error = true;
             $fnameError = "First name must contain only letters and spaces.";
-        }
+        } 
 
         if (empty($last_name)) {
             $error = true;
@@ -51,13 +51,21 @@
 
         if (empty($user_name)) {
             $error = true;
-            $unameError = "Please enter your user name.";
+            $unameError = "Please enter your username.";
         } elseif (strlen($user_name) < 3 || strlen($user_name) > 30) {
             $error = true;
-            $unameError = "User name must have minimum 3 characters and maximum 30 characters.";
+            $unameError = "Username must have minimum 3 characters and maximum 30 characters.";
         } elseif (!preg_match("/^[a-zA-Z\d]+$/", $user_name)) {
             $error = true;
-            $unameError = "User name must contain only letters and numbers, but no spaces.";
+            $unameError = "Username must contain only letters and numbers, but no spaces.";
+        } else {
+            $sql = "SELECT user_name FROM users WHERE user_name = '$user_name'";
+            $result = mysqli_query($connect, $sql);
+
+            if (mysqli_num_rows( $result) != 0) {
+                $error = true;
+                $unameError = "Provided username is already in use."; 
+            }
         }
 
         if (empty($birth_date)) {
@@ -68,24 +76,24 @@
         // password validation
         if (empty($password)) {
             $error = true;
-            $passlError = "Please enter your password"; 
+            $passlError = "Please enter your password."; 
         } elseif (strlen($password) < 6) {
             $error = true;
-            $passError = "Password must have at least 6 characters";
+            $passError = "Password must have at least 6 characters.";
         }
         $password = hash("sha256", $password);
 
         // email validation
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $error = true;
-            $emailError = "Please enter valid email address";            
+            $emailError = "Please enter valid email address.";            
         } else {
             $sql = "SELECT email FROM users WHERE email = '$email'";
             $result = mysqli_query($connect, $sql);
 
             if (mysqli_num_rows( $result) != 0) {
                 $error = true;
-                $emailError = "Provided email is already in use"; 
+                $emailError = "Provided email is already in use."; 
             }
         }
 
