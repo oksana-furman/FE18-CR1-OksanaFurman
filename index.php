@@ -65,11 +65,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <?php require '../folder/boot.php'?>
+    <?php require './folder/boot.php'?>
 </head>
 <body>
     <header>
-        <?php require "../folder/navbar.php" ?>
+        <?php require "./folder/navbar.php" ?>
     </header>
     <div class="container m-auto">
         <form action="<?php echo htmlspecialchars($_SERVER['SCRIPT_NAME']); ?>" autocomplete="off" method="post" class="form-group w-75">
@@ -96,6 +96,6 @@
     </div>
 
     
-    <?php require "../folder/footer.php" ?>  
+    <?php require "./folder/footer.php" ?>  
 </body>
 </html>

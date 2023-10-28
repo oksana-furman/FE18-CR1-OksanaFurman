@@ -1,45 +1,52 @@
 <?php
-require "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/db_connect.php";
-require "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/file_upload.php";
+    session_start();
+    if (!isset($_SESSION['adm']) && !isset($_SESSION['user'])) {
+        header("Location: ../index.php");
+    } 
+    if (isset($_SESSION['user'])) {
+        header("Location: ../home.php");
+    }
+    require "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/db_connect.php";
+    require "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/file_upload.php";
 
-if (isset($_POST['update'])) {
-    $id = $_POST['id'];
-    $name = $_POST['name'];
-    $type = $_POST['type'];
-    $cuisine = $_POST['cuisine'];
-    $prep_time = $_POST['prep_time'];
-    $cook_time = $_POST['cook_time'];
-    $total_time = $_POST['total_time'];
-    $servings = $_POST['servings'];
-    $ingredients = $_POST['ingredients'];
-    $instructions = $_POST['instructions'];
-    $link = $_POST['link'];
-    $uploadError = '';
+    if (isset($_POST['update'])) {
+        $id = $_POST['id'];
+        $name = $_POST['name'];
+        $type = $_POST['type'];
+        $cuisine = $_POST['cuisine'];
+        $prep_time = $_POST['prep_time'];
+        $cook_time = $_POST['cook_time'];
+        $total_time = $_POST['total_time'];
+        $servings = $_POST['servings'];
+        $ingredients = $_POST['ingredients'];
+        $instructions = $_POST['instructions'];
+        $link = $_POST['link'];
+        $uploadError = '';
 
-    $picture = file_upload($_FILES['picture']);
+        $picture = file_upload($_FILES['picture'], "cake");
 
-    if ($picture->error == 0) { # you change img
-            $sqlUpdate = "UPDATE `desserts` SET `name`='$name',`type`='$type',`cuisine`='$cuisine',`prep_time`='$prep_time',`cook_time`='$cook_time',`total_time`='$total_time',`servings`=$servings,`ingredients`='$ingredients',`instructions`='$instructions',`picture`='$picture->fileName',`link`='$link' WHERE id = $id";
-        if ($_POST['picture'] != "default.png") {
-            unlink("../img/{$_POST['picture']}");
+        if ($picture->error == 0) { # you change img
+                $sqlUpdate = "UPDATE `desserts` SET `name`='$name',`type`='$type',`cuisine`='$cuisine',`prep_time`='$prep_time',`cook_time`='$cook_time',`total_time`='$total_time',`servings`=$servings,`ingredients`='$ingredients',`instructions`='$instructions',`picture`='$picture->fileName',`link`='$link' WHERE id = $id";
+            if ($_POST['picture'] != "default.png") {
+                unlink("../img/{$_POST['picture']}");
+            }
+        } else { # you don't change the image
+            $sqlUpdate = "UPDATE `desserts` SET `name`='$name',`type`='$type',`cuisine`='$cuisine',`prep_time`='$prep_time',`cook_time`='$cook_time',`total_time`='$total_time',`servings`=$servings,`ingredients`='$ingredients',`instructions`='$instructions',`link`='$link' WHERE id = $id";
         }
-    } else { # you don't change the image
-        $sqlUpdate = "UPDATE `desserts` SET `name`='$name',`type`='$type',`cuisine`='$cuisine',`prep_time`='$prep_time',`cook_time`='$cook_time',`total_time`='$total_time',`servings`=$servings,`ingredients`='$ingredients',`instructions`='$instructions',`link`='$link' WHERE id = $id";
-    }
-    if (mysqli_query($connect, $sqlUpdate) == true) { 
-        $class = "success";
-        $message = "The recipe \"$name\" was successfully updated";
-        $uploadError = ($picture->error !=0)? $picture->ErrorMessage :'';
-        header("refresh:5;URL=../components/index.php");
+        if (mysqli_query($connect, $sqlUpdate) == true) { 
+            $class = "success";
+            $message = "The recipe \"$name\" was successfully updated";
+            $uploadError = ($picture->error !=0)? $picture->ErrorMessage :'';
+            header("refresh:5;URL=../components/index.php");
+        } else {
+            $class = "danger";
+            $message = "Error while updating the recipe \"$name\" : <br>" . mysqli_connect_error();
+            $uploadError = ($picture->error !=0)? $picture->ErrorMessage :'';
+        }
+        mysqli_close($connect);
     } else {
-        $class = "danger";
-        $message = "Error while updating the recipe \"$name\" : <br>" . mysqli_connect_error();
-        $uploadError = ($picture->error !=0)? $picture->ErrorMessage :'';
+        header("location: ./error.php");
     }
-    mysqli_close($connect);
-} else {
-    header("location: ./error.php");
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">

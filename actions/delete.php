@@ -1,4 +1,11 @@
 <?php
+    session_start();
+    if (!isset($_SESSION['adm']) && !isset($_SESSION['user'])) {
+        header("Location: ../index.php");
+    } 
+    if (isset($_SESSION['user'])) {
+        header("Location: ../home.php");
+    }
     require "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/db_connect.php";
     require "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/file_upload.php";
 
@@ -9,7 +16,7 @@
     $result = mysqli_query($connect, $sqlSelect);
     $row = mysqli_fetch_assoc($result);
     $picture = $row['picture'];
-    if ($picture != 'default.png') {
+    if ($picture != 'cakefault.png') {
         unlink("../uploads/$picture");
     }
 

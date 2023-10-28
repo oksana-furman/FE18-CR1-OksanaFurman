@@ -1,5 +1,6 @@
 $text-nav: rgb(133, 12, 30);
 $bg-nav: rgb(248, 209, 158);
+$user: rgba(214, 115, 22, 0.645);
 $bg-nav-hover: rgba(252, 230, 203, 0.966);
 $bg-body: antiquewhite;
 .navbar {
@@ -40,26 +41,31 @@ $bg-body: antiquewhite;
 
 .navLink:hover {
     background-color: $bg-nav-hover;
+    border-radius: 10px;
 }
 
-.dropdown:hover {
-    .dropButton {
-        background-color: $bg-nav-hover;
-        .dropdown-content {
-            display: block;
-        }
-    }
-    .dropdown-content {
-        display: block;
-        a:hover {
-            background-color: $bg-nav-hover;
-        }
-    }
-}
+// .dropdown:hover {
+//     .dropButton {
+//         background-color: $bg-nav-hover;
+//         .dropdown-content {
+//             display: block;
+//         }
+//     }
+//     .dropdown-content {
+//         display: block;
+//         a:hover {
+//             background-color: $bg-nav-hover;
+//         }
+//     }
+// }
 
 #something {
     color: blue;
 }
 .adm, .user{
     font-size: x-large;
+    color: $text-nav;
+}
+.adm:hover, .user:hover{
+    color: $user;
 }

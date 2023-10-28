@@ -121,11 +121,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
-    <?php require '../folder/boot.php'?>
+    <?php require './folder/boot.php'?>
 </head>
 <body>
     <header>
-        <?php require "../folder/navbar.php" ?>
+        <?php require "./folder/navbar.php" ?>
     </header>
 
     <h1 class="text-center m-4">Registration Form</h1>
@@ -166,6 +166,6 @@
     </div>
 
     
-    <?php require "../folder/footer.php" ?>  
+    <?php require "./folder/footer.php" ?>  
 </body>
 </html>

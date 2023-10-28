@@ -1,4 +1,5 @@
 <?php
+session_start();
     require "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/db_connect.php";
     require "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/file_upload.php";
 
@@ -7,18 +8,38 @@
     $body = "";
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
-            // var_dump($row);
-            $body .= "
-        <div class='item'>
-            <a href='details.php?id={$row['id']}' target='_blank'><img src='../img/{$row['picture']}' alt='{$row['name']}' class='image'></a>
-            <div class='itemText'>  
-                <p>{$row['name']}</p>
-                <div class='btns'>
-                <a href='../actions/update.php?id={$row["id"]}' class='btn btn-warning'>Update</a>
-                <a href='../actions/delete.php?id={$row["id"]}' class='btn btn-danger'>Delete</a>
-            </div>
-            </div>
-        </div>";
+            // $body .= "
+            //     <div class='item'>
+            //         <a href='details.php?id={$row['id']}' target='_blank'><img src='../img/{$row['picture']}' alt='{$row['name']}' class='image'></a>
+            //         <div class='itemText'>  
+            //             <p>{$row['name']}</p>
+            //             <div class='btns'>
+                //             <a href='../actions/update.php?id={$row["id"]}' class='btn btn-warning'>Update</a>
+                //             <a href='../actions/delete.php?id={$row["id"]}' class='btn btn-danger'>Delete</a>
+            //              </div>
+            //         </div>
+            //     </div>";
+            if (isset($_SESSION['adm'])) {
+                $body .= "
+                <div class='item'>
+                    <a href='details.php?id={$row['id']}' target='_blank'><img src='../img/{$row['picture']}' alt='{$row['name']}' class='image'></a>
+                    <div class='itemText'>  
+                        <p>{$row['name']}</p>
+                        <div class='btns'>
+                            <a href='../actions/update.php?id={$row["id"]}' class='btn btn-warning'>Update</a>
+                            <a href='../actions/delete.php?id={$row["id"]}' class='btn btn-danger'>Delete</a>
+                        </div>
+                    </div>
+                </div>";
+            } else {
+                $body .= "
+                <div class='item'>
+                    <a href='details.php?id={$row['id']}' target='_blank'><img src='../img/{$row['picture']}' alt='{$row['name']}' class='image'></a>
+                    <div class='itemText'>  
+                        <p>{$row['name']}</p>
+                    </div>
+                </div>";
+            } 
         }
     } else {
         $body .= " <p>The category is currently empty.</p>";
@@ -44,10 +65,15 @@
     <div>
         <!-- type sorting btns -->
     </div>
-    <div class="btns">
-        <a href="../actions/create.php" class="btn btn-primary">Add a new recipe</a>
-    </div>
-
+    <?php  ?>
+    <?php if (isset($_SESSION['adm'])) {
+        echo "<div class='btns'>
+                <a href='../actions/create.php' class='btn btn-primary'>Add a new recipe</a>
+            </div>";
+    } else {
+        echo "";
+    } ?>
+    
     <div class="container">
         
         <?= $body?>

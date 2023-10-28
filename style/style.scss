@@ -3,8 +3,10 @@
 @import "details.scss";
 @import "footer.scss";
 @import "file-recipe.scss";
+@import "login.scss";
 $text-nav: rgb(133, 12, 30);
 $bg-nav: rgb(248, 209, 158);
+$user: rgba(214, 115, 22, 0.645);
 $bg-nav-hover: rgba(252, 230, 203, 0.966);
 $bg-body: antiquewhite;
 * {
@@ -68,8 +70,11 @@ body {
         .item:hover>.itemText{
             visibility: visible;
         }
+
+        
     }
    
+    
 }
 
 

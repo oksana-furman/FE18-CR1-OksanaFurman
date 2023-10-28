@@ -1,8 +1,13 @@
 <?php
 
-    function file_upload($picture){ #update for different default pictures later
+    function file_upload($picture, $scr = "user"){ #update for different default pictures later
         $result = new stdClass();
         $result->fileName = 'default.png';
+
+        if ($scr == "cake") {
+            $result->fileName = 'cakefault.png';
+        }
+
         $result->error = 1; // true
         $fileName = $picture['name'];
         $fileTempName = $picture['tmp_name'];
@@ -23,7 +28,10 @@
                         $fileNewName = uniqid('') . '.' . $fileExtention;
 
                         // destination is not from this file but from files we're using file update in
-                        $destination = "../uploads/$fileNewName";
+                        $destination = "./uploads/$fileNewName";
+                        if ($scr == "cake") {
+                            $destination = "../uploads/$fileNewName";
+                        }
 
                         if (move_uploaded_file($fileTempName, $destination)) {
                             $result->error = 0;

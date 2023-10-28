@@ -37,19 +37,7 @@
 
 .navLink:hover {
   background-color: rgba(252, 230, 203, 0.966);
-}
-
-.dropdown:hover .dropButton {
-  background-color: rgba(252, 230, 203, 0.966);
-}
-.dropdown:hover .dropButton .dropdown-content {
-  display: block;
-}
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-.dropdown:hover .dropdown-content a:hover {
-  background-color: rgba(252, 230, 203, 0.966);
+  border-radius: 10px;
 }
 
 #something {
@@ -58,6 +46,11 @@
 
 .adm, .user {
   font-size: x-large;
+  color: rgb(133, 12, 30);
+}
+
+.adm:hover, .user:hover {
+  color: rgba(214, 115, 22, 0.645);
 }
 
 .detailsContainer .content {
@@ -195,6 +188,36 @@ footer .f-p {
   padding: 10px;
 }
 
+#hero {
+  margin: 0;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(24deg, rgb(133, 12, 30) 0%, rgb(248, 209, 158) 100%);
+}
+#hero .userImage {
+  height: 15rem;
+  width: 15em;
+  border-radius: 50%;
+  margin: 3rem;
+}
+#hero a {
+  text-decoration: none;
+  color: white;
+  font-size: x-large;
+  margin-right: 2rem;
+}
+#hero a:hover {
+  color: rgb(167, 167, 167);
+}
+#hero p {
+  color: white;
+  font-size: x-large;
+}
+
+.users {
+  margin: auto;
+  width: 75%;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -253,14 +276,14 @@ body .container .item:hover > .itemText {
 }
 
 @media screen and (min-width: 480px) and (max-width: 600px) {
-  body .container {
+  .container {
     display: grid;
     grid-template-rows: repeat(12, 1fr);
     grid-template-columns: 1, 1fr;
   }
 }
 @media screen and (min-width: 601px) and (max-width: 962px) {
-  body .container {
+  .container {
     display: grid;
     grid-template-rows: repeat(6, 1fr);
     grid-template-columns: repeat(2, 1fr);
