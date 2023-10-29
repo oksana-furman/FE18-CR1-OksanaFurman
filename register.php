@@ -125,7 +125,7 @@
 </head>
 <body>
     <header>
-        <?php require "./folder/navbar.php" ?>
+        <?php require "./navbar.php" ?>
     </header>
 
     <h1 class="text-center m-4">Registration Form</h1>

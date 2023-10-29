@@ -19,8 +19,14 @@
   font-size: 30px;
   color: rgb(133, 12, 30);
   padding: 14px 16px;
-  text-align: center;
   text-decoration: none;
+  color: rgb(133, 12, 30);
+  display: block;
+  text-align: left;
+}
+.navbar .navLink:hover {
+  background-color: rgba(252, 230, 203, 0.966);
+  border-radius: 10px;
 }
 .navbar #logoText {
   font-size: 30px;
@@ -29,28 +35,79 @@
   text-align: center;
   text-decoration: none;
 }
-.navbar a {
+.navbar .user {
+  font-family: "Quicksand", sans-serif;
+  font-size: x-large;
   color: rgb(133, 12, 30);
   display: block;
   text-align: left;
+  margin-top: 1rem;
+  text-decoration: none;
 }
-
-.navLink:hover {
-  background-color: rgba(252, 230, 203, 0.966);
-  border-radius: 10px;
-}
-
-#something {
-  color: blue;
-}
-
-.adm, .user {
-  font-size: x-large;
-  color: rgb(133, 12, 30);
-}
-
-.adm:hover, .user:hover {
+.navbar .user:hover {
   color: rgba(214, 115, 22, 0.645);
+}
+
+.wrap {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.wrapper h1 {
+  color: rgb(133, 12, 30);
+  text-align: center;
+  font-family: "Great Vibes", cursive;
+  font-weight: bolder;
+  margin-top: 3rem;
+}
+.wrapper #hero {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(24deg, rgb(133, 12, 30) 0%, rgb(248, 209, 158) 100%);
+}
+.wrapper #hero .imgDiv {
+  width: 50%;
+}
+.wrapper #hero .imgDiv .userImage {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+  margin: 3rem;
+}
+.wrapper #hero .txtDiv .btn {
+  color: rgb(248, 209, 158);
+  border: 1px solid rgb(248, 209, 158);
+}
+.wrapper #hero .txtDiv .btn:hover {
+  background-color: rgb(248, 209, 158);
+  color: rgb(133, 12, 30);
+  border: 1px solid rgb(133, 12, 30);
+}
+.wrapper #hero .txtDiv p {
+  font-family: "Quicksand", sans-serif;
+  color: rgb(248, 209, 158);
+  font-size: xx-large;
+}
+.wrapper .users {
+  margin: auto;
+  width: 75%;
 }
 
 .detailsContainer .content {
@@ -126,15 +183,17 @@
   }
 }
 footer {
+  width: 100%;
   background-color: rgb(248, 209, 158);
   padding-top: 10px;
   padding-bottom: 10px;
 }
-footer .f-div {
+footer .bigDiv {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  align-items: center;
 }
-footer .f-div .f-link {
+footer .bigDiv .f-link {
   text-decoration: none;
   color: rgb(133, 12, 30);
   padding: 10px;
@@ -188,36 +247,6 @@ footer .f-p {
   padding: 10px;
 }
 
-#hero {
-  margin: 0;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(24deg, rgb(133, 12, 30) 0%, rgb(248, 209, 158) 100%);
-}
-#hero .userImage {
-  height: 15rem;
-  width: 15em;
-  border-radius: 50%;
-  margin: 3rem;
-}
-#hero a {
-  text-decoration: none;
-  color: white;
-  font-size: x-large;
-  margin-right: 2rem;
-}
-#hero a:hover {
-  color: rgb(167, 167, 167);
-}
-#hero p {
-  color: white;
-  font-size: x-large;
-}
-
-.users {
-  margin: auto;
-  width: 75%;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -225,21 +254,45 @@ footer .f-p {
 }
 
 body {
-  background-color: antiquewhite;
-  font-family: "Quicksand", sans-serif;
+  background-color: antiquewhite !important;
+  font-family: "Quicksand", sans-serif !important;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+body .btn {
+  color: rgb(133, 12, 30);
+  border: 1px solid rgb(133, 12, 30);
+}
+body .btn:hover {
+  background-color: rgb(248, 209, 158);
+  color: rgb(133, 12, 30);
+  border: 1px solid rgb(133, 12, 30);
+}
+body .hero {
+  margin: 0;
+  margin-right: -5rem;
+  padding: 0;
+  height: 20rem;
+  width: 100%;
+  background-image: url("../img/hero1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 body .headline {
   text-align: center;
   margin: 3rem;
 }
-body .container {
+body .contSweets {
   display: grid;
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
   padding: 2rem;
 }
-body .container .item {
+body .contSweets .item {
   overflow: hidden;
   position: relative;
   padding: 10px;
@@ -247,12 +300,12 @@ body .container .item {
   border-radius: 15px;
   box-shadow: rgba(235, 167, 64, 0.548) 0px 7px 9px 0px;
 }
-body .container .item a .image {
+body .contSweets .item a .image {
   width: 100%;
   height: 94%;
   border-radius: 10px;
 }
-body .container .item .itemText {
+body .contSweets .item .itemText {
   position: absolute;
   width: 80%;
   margin-left: 5%;
@@ -262,16 +315,16 @@ body .container .item .itemText {
   visibility: hidden;
   background-color: rgba(7, 7, 7, 0.6);
 }
-body .container .item .itemText p {
+body .contSweets .item .itemText p {
   color: white;
   padding: 5px;
   text-align: center;
 }
-body .container .item:hover {
+body .contSweets .item:hover {
   transform: scale(1.1);
   transition: width 1s, height 1s, transform 1s;
 }
-body .container .item:hover > .itemText {
+body .contSweets .item:hover > .itemText {
   visibility: visible;
 }
 

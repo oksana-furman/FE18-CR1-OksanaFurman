@@ -10,7 +10,7 @@
         header("Location: home.php");
         exit;
     }
-
+ 
     $id = $_SESSION['adm'];
     $status = 'adm';
     $sql = "SELECT * FROM users WHERE id = '$id'";
@@ -34,8 +34,8 @@
                 <td>{$row2['last_name']}</td>
                 <td>{$row2['birth_date']}</td>
                 <td>
-                    <a href='./update.php?id={$row2['id']}' class='btn btn-warning m-2'>Update</a>
-                    <a href='delete.php?id={$row2['id']}' class='btn btn-danger m-2'>Delete</a>
+                    <a href='./update.php?id={$row2['id']}' class='btn m-2'>Update</a>
+                    <a href='delete.php?id={$row2['id']}' class='btn m-2'>Delete</a>
                 </td>
             </tr>";
         }
@@ -53,42 +53,46 @@
     <?php require './folder/boot.php'?>
 </head>
 <body>
-    
-    <header>
-        <?php require "./folder/navbar.php" ?>
-    </header>
+    <div class="wrap">
+        <header>
+            <?php require "./navbar.php" ?>
+        </header>
+        <div class="wrapper">
 
-    <div id="hero">
-            <p class="text-white">Administrator</p>
-            <img class="userImage m-2" src="./uploads/<?= $row['picture']; ?>" alt="<?= $row['user_name']; ?>">
-            <p class="text-white">Hi <?= $row['user_name']; ?></p>
-            <div class="btnBox">
-                 <a class="link m-2" href="logout.php?logout">Sign Out</a>
-        <a class="link m-2" href="update_profile.php?id=<?= $_SESSION['adm'] ?>">Update your profile</a>
+            <div id="hero" class="d-flex align-items-center">
+                <div class="imgDiv flex-shrink-0">
+                    <img class="userImage m-2" src="./uploads/<?= $row['picture']; ?>" alt="<?= $row['user_name']; ?>">
+                </div>
+                <div class="txtDiv flex-grow-1 ms-3">
+                    <p>Administrator</p>
+                    <p>Hello, <?= $row['user_name']; ?></p>
+                    <a class="btn m-2" href="logout.php?logout">Sign Out</a>
+                    <a class="btn m-2" href="update_profile.php?id=<?= $_SESSION['adm'] ?>">Update your profile</a>
+                </div>
             </div>
-
-    <div class="users">
-        <h3>Users</h3>
-    <table class="table table-hover table-borderless w-100">
-  <thead>
-    <tr>
-      <th scope="col">Picture</th>
-      <th scope="col">Username</th>
-      <th scope="col">Email</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Date of birth</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?= $tbody ?>
-  </tbody>
-</table>
+            
+            <div class="users">
+                <h3>Users</h3>
+                <table class="table table-hover table-borderless w-100">
+                    <thead>
+                        <tr>
+                        <th scope="col">Picture</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Date of birth</th>
+                        <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?= $tbody ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <?php require "./folder/footer.php" ?> 
     </div>
-
-
-    
-    <?php require "./folder/footer.php" ?> 
 </body>
 </html>

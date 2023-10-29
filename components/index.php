@@ -8,17 +8,6 @@ session_start();
     $body = "";
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
-            // $body .= "
-            //     <div class='item'>
-            //         <a href='details.php?id={$row['id']}' target='_blank'><img src='../img/{$row['picture']}' alt='{$row['name']}' class='image'></a>
-            //         <div class='itemText'>  
-            //             <p>{$row['name']}</p>
-            //             <div class='btns'>
-                //             <a href='../actions/update.php?id={$row["id"]}' class='btn btn-warning'>Update</a>
-                //             <a href='../actions/delete.php?id={$row["id"]}' class='btn btn-danger'>Delete</a>
-            //              </div>
-            //         </div>
-            //     </div>";
             if (isset($_SESSION['adm'])) {
                 $body .= "
                 <div class='item'>
@@ -26,8 +15,8 @@ session_start();
                     <div class='itemText'>  
                         <p>{$row['name']}</p>
                         <div class='btns'>
-                            <a href='../actions/update.php?id={$row["id"]}' class='btn btn-warning'>Update</a>
-                            <a href='../actions/delete.php?id={$row["id"]}' class='btn btn-danger'>Delete</a>
+                            <a href='../actions/update.php?id={$row["id"]}' class='btn'>Update</a>
+                            <a href='../actions/delete.php?id={$row["id"]}' class='btn'>Delete</a>
                         </div>
                     </div>
                 </div>";
@@ -59,7 +48,7 @@ session_start();
 
 <body>
     <header>
-        <?php require "../folder/navbar.php" ?>
+        <?php require "./navbar.php" ?>
     </header>
 
     <div>
@@ -67,14 +56,14 @@ session_start();
     </div>
     <?php  ?>
     <?php if (isset($_SESSION['adm'])) {
-        echo "<div class='btns'>
-                <a href='../actions/create.php' class='btn btn-primary'>Add a new recipe</a>
+        echo "<div class='btns p-2 text-center'>
+                <a href='../actions/create.php' class='btn m-2'>Add a new recipe</a>
             </div>";
     } else {
         echo "";
     } ?>
     
-    <div class="container">
+    <div class="contSweets">
         
         <?= $body?>
     </div>

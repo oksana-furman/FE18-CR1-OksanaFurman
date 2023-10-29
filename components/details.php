@@ -35,8 +35,8 @@
                 <a href='{$row['link']}'>{$row['name']}.</a>
             </div>
             <div class='btns'>
-                <a href='../actions/update.php?id={$row["id"]}' class='btn btn-warning'>Update</a>
-                <a href='../actions/delete.php?id={$row["id"]}' class='btn btn-danger'>Delete</a>
+                <a href='../actions/update.php?id={$row["id"]}' class='btn'>Update</a>
+                <a href='../actions/delete.php?id={$row["id"]}' class='btn'>Delete</a>
             </div>
         </div>";
         } else {
@@ -76,7 +76,7 @@
     <?php require '../folder/boot.php'?>
 </head>
 <body>
-    <?php require "../folder/navbar.php" ?>
+    <?php require "./navbar.php" ?>
     <div class="detailsContainer">
     <?= $body?>
     </div>

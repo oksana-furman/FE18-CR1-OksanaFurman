@@ -1,16 +1,25 @@
 footer {
+    
+    width: 100%;
+    // position: absolute;
+    // bottom: 0;
     background-color: $bg-nav;
     padding-top: 10px;
     padding-bottom: 10px;
-    .f-div {
+    // margin-bottom: -1rem;
+    .bigDiv{
         display: flex;
-        justify-content: space-evenly;
-        .f-link {
-            text-decoration: none;
-            color: $text-nav;
-            padding: 10px;
+        justify-content: space-around;
+        align-items: center;
+        // .f-div {
+            
+        //     }
+            .f-link {
+                text-decoration: none;
+                color: $text-nav;
+                padding: 10px;
+            }
         }
-    }
     .f-p {
         display: block;
         padding: 10px;

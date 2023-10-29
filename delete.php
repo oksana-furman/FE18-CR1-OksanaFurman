@@ -55,7 +55,7 @@
 <body>
 
     <header>
-        <?php require "./folder/navbar.php" ?>
+        <?php require "./navbar.php" ?>
     </header>   
     
     <div class="<?= $class; ?>" role="alert">

@@ -22,8 +22,15 @@ $bg-body: antiquewhite;
         font-size: 30px;
         color: $text-nav;
         padding: 14px 16px;
-        text-align: center;
+        // text-align: center;
         text-decoration: none;
+        color: $text-nav;
+        display: block;
+        text-align: left;
+    }
+    .navLink:hover {
+        background-color: $bg-nav-hover;
+        border-radius: 10px;
     }
     #logoText {
         font-size: 30px;
@@ -32,40 +39,24 @@ $bg-body: antiquewhite;
         text-align: center;
         text-decoration: none;
     }
-    a {
+
+    .user{
+        font-family: 'Quicksand', sans-serif;
+        font-size: x-large;
         color: $text-nav;
         display: block;
         text-align: left;
+        margin-top: 1rem;
+        text-decoration: none;
+
+    }
+    .user:hover{
+        color: $user;
     }
 }
 
-.navLink:hover {
-    background-color: $bg-nav-hover;
-    border-radius: 10px;
-}
 
-// .dropdown:hover {
-//     .dropButton {
-//         background-color: $bg-nav-hover;
-//         .dropdown-content {
-//             display: block;
-//         }
-//     }
-//     .dropdown-content {
-//         display: block;
-//         a:hover {
-//             background-color: $bg-nav-hover;
-//         }
-//     }
+
+// #something {
+//     color: blue;
 // }
-
-#something {
-    color: blue;
-}
-.adm, .user{
-    font-size: x-large;
-    color: $text-nav;
-}
-.adm:hover, .user:hover{
-    color: $user;
-}

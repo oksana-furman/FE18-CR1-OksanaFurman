@@ -21,29 +21,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello, <?= $row['user_name']; ?></title>
+    <title>My Profile</title>
     <?php require './folder/boot.php'?>
 </head>
 <body>
+<div class="wrap">
     <header>
-        <?php require "./folder/navbar.php" ?>
+        <?php require "./navbar.php" ?>
     </header>
-       
-        <div id="hero">
-            <div>
+    <div class="wrapper p-3">
+        <h1>Welcome Back, <?= $row['user_name']; ?></h1>
+        <div id="hero" class="d-flex align-items-center">
+            <div class="imgDiv flex-shrink-0">
                 <img src="./img/<?= $row['picture']; ?>" alt="<?= $row['user_name']; ?>" class="userImage">
-                
             </div>
-            <div>
+            <div class="txtDiv flex-grow-1 ms-3">
                 <p>Hello, <?= $row['user_name']; ?>!</p>
-                <a href="./logout.php?logout">Sign Out</a>
-                <a href="./update.php?id=<?= $_SESSION['user'] ?>">Update your profile</a>   
+                <a href="./logout.php?logout" class="btn">Sign Out</a>
+                <a href="./update.php?id=<?= $_SESSION['user'] ?>" class="btn">Update your profile</a>   
             </div>
-            <div>
-            
+            <div></div>
         </div>
-        </div>
- 
+    </div>
     <?php require "./folder/footer.php" ?> 
+    </div>
 </body>
 </html>

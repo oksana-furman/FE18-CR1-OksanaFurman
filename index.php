@@ -69,7 +69,7 @@
 </head>
 <body>
     <header>
-        <?php require "./folder/navbar.php" ?>
+        <?php require "./navbar.php" ?>
     </header>
     <div class="container m-auto">
         <form action="<?php echo htmlspecialchars($_SERVER['SCRIPT_NAME']); ?>" autocomplete="off" method="post" class="form-group w-75">
@@ -89,7 +89,7 @@
             <span class="text-danger"><?php echo $passError; ?></span>
              <br>
 
-            <button class="btn btn-secondary mb-2" type="submit" name="btnLogin">Sign in</button>
+            <button class="btn mb-2" type="submit" name="btnLogin">Sign in</button>
             <br>
             <a href="register.php" class="link form-control">Not registered yet? Click here</a>
         </form>

@@ -50,7 +50,7 @@
     </head>
     <body>
         <header>
-            <?php require "../folder/navbar.php" ?>
+            <?php require "../components/navbar.php" ?>
         </header>
 
         <div class="errorMessage">
