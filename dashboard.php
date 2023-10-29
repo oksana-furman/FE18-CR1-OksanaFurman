@@ -11,11 +11,13 @@
         exit;
     }
 
-    $sql = "SELECT * FROM users WHERE status = 'adm'";
+    $id = $_SESSION['adm'];
+    $status = 'adm';
+    $sql = "SELECT * FROM users WHERE id = '$id'";
     $result = mysqli_query($connect, $sql);
     $row = mysqli_fetch_assoc($result);
 
-    $sql2 = "SELECT * FROM users WHERE status = 'user'";
+    $sql2 = "SELECT * FROM users WHERE status != '$status'";
     $result2 = mysqli_query($connect, $sql2);
 
 

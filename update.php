@@ -55,9 +55,9 @@
             $class = "alert alert-success";
             $message = "The record was successfully updated";
             $uploadError = ($pictureArray->error != 0) ? $pictureArray->ErrorMessage : '';
-            header("refresh:3;url=update_profile.php?id={$id}");
+            header("refresh:3;url=update.php?id={$id}");
         } else {
-            $class = "a000000lert alert-danger";
+            $class = "alert alert-danger";
             $message = "Error while updating record : <br>" . $connect->error;
             $uploadError = ($pictureArray->error != 0) ? $pictureArray->ErrorMessage : '';
             header("refresh:3;url=./update.php?id={$id}");
@@ -72,9 +72,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Update Profile</title>
+        <?php require './folder/boot.php'?>
       </head>
       <body>
 
+        <header>
+            <?php require "./folder/navbar.php" ?>
+        </header>
 
         <div class="container">
             <div class="<?= $class ?>" role="alert">
@@ -121,6 +125,6 @@
             </form>
         </div>
 
-        
+        <?php require "./folder/footer.php" ?> 
       </body>
       </html>
