@@ -10,8 +10,6 @@
     require_once "./db_connect.php";
     require_once "./file_upload.php";
 
-    // require_once "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/db_connect.php";
-    // require_once "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/file_upload.php";
     $btns = "";
     $message = "";
     $class = "";
