@@ -1,6 +1,7 @@
 <?php
     session_start();
-    require "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/db_connect.php";
+    require_once "../actions/db_connect.php";
+    // require_once "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/db_connect.php";
 
     function cleanInput($param){
         $clean = trim($param);
@@ -65,14 +66,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <?php require './folder/boot.php'?>
+    <?php require_once '../folder/boot.php'?>
 </head>
 <body>
     <header>
-        <?php require "./navbar.php" ?>
+        <?php require_once "./navbar-login.php" ?>
     </header>
-    <div class="container m-auto">
-        <form action="<?php echo htmlspecialchars($_SERVER['SCRIPT_NAME']); ?>" autocomplete="off" method="post" class="form-group w-75">
+    <div class="container">
+        <form action="<?php echo htmlspecialchars($_SERVER['SCRIPT_NAME']); ?>" autocomplete="off" method="post" class="form-group m-2 mt-5">
             <h2 class="text-center">Login</h2>
             <hr>
             <?php
@@ -88,14 +89,14 @@
             <input type="password" name="password" id="password" class="form-control">
             <span class="text-danger"><?php echo $passError; ?></span>
              <br>
-
-            <button class="btn mb-2" type="submit" name="btnLogin">Sign in</button>
-            <br>
-            <a href="register.php" class="link form-control">Not registered yet? Click here</a>
+            <div class="btns">
+                <button class="btn mb-2" type="submit" name="btnLogin">Sign in</button>
+                <br>
+            </div>
+            <a href="register.php" class="link">Not registered yet? Click here</a>
         </form>
     </div>
 
-    
-    <?php require "./folder/footer.php" ?>  
+    <?php require_once "../folder/footer.php" ?>  
 </body>
 </html>

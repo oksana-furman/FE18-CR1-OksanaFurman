@@ -1,13 +1,18 @@
 <?php
     session_start();
+    // verification of the user
     if (isset($_SESSION['user']) != "") {
         header("Location: ./home.php");
     }
     if (isset($_SESSION['adm']) != "") {
         header("Location: dashboard.php");
     }
-    require "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/db_connect.php";
-    require "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/file_upload.php";
+    require_once "../actions/db_connect.php";
+    require_once "../actions/file_upload.php";
+
+    // require_once "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/db_connect.php";
+    // require_once "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/file_upload.php";
+    
     function cleanInput($param){
         $clean = trim($param);
         $clean = strip_tags($clean);
@@ -19,7 +24,6 @@
 
     if (isset($_POST['signUp'])) {
         $error = false;
-
         $first_name = cleanInput($_POST['first_name']);
         $last_name = cleanInput($_POST['last_name']);
         $user_name = cleanInput($_POST['user_name']);
@@ -27,6 +31,7 @@
         $password = cleanInput($_POST['password']);
         $email = cleanInput($_POST['email']);
 
+        // name validation
         if (empty($first_name)) {
             $error = true;
             $fnameError = "Please enter your first name.";
@@ -48,7 +53,7 @@
             $error = true;
             $lnameError = "Last name must contain only letters and no spaces.";
         }
-
+        // username validation
         if (empty($user_name)) {
             $error = true;
             $unameError = "Please enter your username.";
@@ -67,12 +72,11 @@
                 $unameError = "Provided username is already in use."; 
             }
         }
-
+        // birth date validation
         if (empty($birth_date)) {
             $error = true;
             $dateError = "Please enter your date of birth."; 
         }
-
         // password validation
         if (empty($password)) {
             $error = true;
@@ -97,7 +101,7 @@
             }
         }
 
-        $picture = file_upload($_FILES['picture']);
+        $picture = file_upload($_FILES['picture'], "user");
         
         if (!$error) {
             $sql = "INSERT INTO `users`(`first_name`, `last_name`, `user_name`, `birth_date`, `password`, `email`, `picture`) VALUES ('$first_name','$last_name','$user_name','$birth_date','$password','$email','$picture->fileName')";
@@ -105,14 +109,14 @@
             if ($result) {
                 $class = "success";
                 $errorMesssage = "Successfully registered. You may login now.";
-                $uploadError = ($picture->error != 0) ? $picture->ErrorMessage : "";
+                $uploadError = ($picture->error != 0) ? $picture->ErrorMessage : '';
             } else {
                 $class = "danger";
                 $errorMesssage = "Something went wrong. Try again later.";
-                $uploadError = ($picture->error != 0) ? $picture->ErrorMessage : "";
+                $uploadError = ($picture->error != 0) ? $picture->ErrorMessage : '';
             }
         }
-
+        mysqli_close($connect);
     }
 ?>
 <!DOCTYPE html>
@@ -121,11 +125,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
-    <?php require './folder/boot.php'?>
+    <?php require_once '../folder/boot.php'?>
 </head>
 <body>
     <header>
-        <?php require "./navbar.php" ?>
+        <?php require_once "./navbar-login.php" ?>
     </header>
 
     <h1 class="text-center m-4">Registration Form</h1>
@@ -136,36 +140,36 @@
         </div>
     <?php } ?>
 
-    <div class="box w-50 m-auto">
+    <div class="container m-auto">
         <form action="<?= htmlspecialchars($_SERVER['SCRIPT_NAME']) ?>" method="post" enctype="multipart/form-data" class="form-group m-4">
-            <input type="text" name="first_name" class="form-control m-2" placeholder="type your first name" value="<?= $first_name; ?>">
+            <input type="text" name="first_name" class="form-control m-3" placeholder="type your first name" value="<?= $first_name; ?>">
             <span class="text-danger"> <?= $fnameError; ?> </span>
 
-            <input type="text" name="last_name" class="form-control m-2" placeholder="type your last name" value="<?= $last_name; ?>">
+            <input type="text" name="last_name" class="form-control m-3" placeholder="type your last name" value="<?= $last_name; ?>">
             <span class="text-danger"> <?= $lnameError; ?> </span>
 
-            <input type="text" name="user_name" class="form-control m-2" placeholder="type your user name" value="<?= $user_name; ?>">
+            <input type="text" name="user_name" class="form-control m-3" placeholder="type your user name" value="<?= $user_name; ?>">
             <span class="text-danger"> <?= $unameError; ?> </span>
 
-            <input type="date" name="birth_date" class="form-control m-2" value="<?= $birth_date; ?>">
-            <span class="text-danger"> <?= $dateError; ?> </span> <br>
+            <input type="date" name="birth_date" class="form-control m-3" value="<?= $birth_date; ?>">
+            <span class="text-danger"> <?= $dateError; ?> </span>
             
-            <input type="password" name="password" class="form-control m-2" placeholder="type your password">
+            <input type="password" name="password" class="form-control m-3" placeholder="type your password">
             <span class="text-danger"> <?= $passError; ?> </span>
 
-            <input type="email" name="email" class="form-control m-2" placeholder="type your email" value="<?= $email ?>">
+            <input type="email" name="email" class="form-control m-3" placeholder="type your email" value="<?= $email ?>">
             <span class="text-danger"> <?= $emailError; ?> </span>
 
-            <input type="file" name="picture">
+            <input type="file" name="picture" class="form-control m-3">
             <span class="text-danger"> <?= ($picture->ErrorMessage)??""; ?> </span> <br>
-            <hr />
-            <input type="submit" name="signUp" value="Sign up" class="btn btn-success">
-            <hr />
+            <div class="btns">
+                <input type="submit" name="signUp" value="Sign up" class="btn">
+            </div>
+            <!-- log in link -->
             <a class="link" href="./index.php">Sign in Here...</a>
         </form>
     </div>
 
-    
-    <?php require "./folder/footer.php" ?>  
+    <?php require_once "../folder/footer.php" ?>  
 </body>
 </html>

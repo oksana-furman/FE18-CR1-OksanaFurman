@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error</title>
-    <?php require '../folder/boot.php'?>
+    <?php require_once '../folder/boot.php'?>
 </head>
 <body>
     <header>
-        <?php require "../components/navbar.php" ?>
+        <?php require_once "./navbar-actions.php" ?>
     </header>
 
     <div class="container"> 
@@ -21,6 +21,6 @@
     </div>
 
 
-    <?php require "../folder/footer.php" ?>
+    <?php require_once "../folder/footer.php" ?>
 </body>
 </html>

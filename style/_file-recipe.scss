@@ -3,43 +3,145 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    .headline {
+    .head{
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        #hero {
-            width: 50%;
-            border-radius: 10px;
-            box-shadow: rgba(185, 139, 69, 0.2) 0px 7px 9px 0px;
+        text-align: center;
+        margin: auto;
+        h1{
+            text-align: center;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
         }
+        .btns{
+            margin-bottom: 1rem;
+            .btn{
+                color: white;
+                background-color: $text-nav;
+                border: 1px solid white;
+            }
+            .btn:hover{
+                background-color: white;
+                color: $text-nav;
+                border: 1px solid $text-nav;
+            }
+        }  
     }
-    .recipe {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        div {
-            width: 50%;
+        .main{
+            width: 75%;
+            margin: auto;
+
+            .imageDiv{
+                width: fit-content;
+                height: 35rem;
+                overflow: hidden;
+            }
+            .textDiv{
+                width: fit-content;
+                .textR{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    // align-items: center;
+                    text-align: left;
+                    margin: auto;
+                    width: fit-content;
+                    .link{
+                        text-decoration: none;
+                        color: $text-nav;
+                    }
+                    .link:hover{
+                        text-decoration: underline;
+                        color: $text-nav-light;
+                    }
+                }
+            }
         }
-        ul {
-            li {
+        .entries{
+            margin: auto;
+            width: 75%;
+        .big{
+            margin: 2rem;
+            text-align: center;
+        }
+            .headline{
+                text-align: left;
+                list-style-type: none;
+                font-size: large;
+                font-weight: bold;
+                margin-top: 2rem;
+                margin-bottom: 0;
+                margin-left: 0;
+                color: $text-nav;
+            }
+            .ingredient{
                 list-style: none;
                 padding: 10px;
+                color: black;
+                //"label" is a name of a class for a label
                 input[type=checkbox]:checked+label {
-                    color: grey;
+                text-decoration: line-through;
+                }
+                input[type=checkbox]:checked{
+                    accent-color: $text-nav;
+                }
+            }
+            .instruction{
+                list-style-type: none;
+                padding-bottom: 1rem;
+                color: black;
+                span{
+                    font-weight: bold;
+                    margin-right: 0.5rem;
+                    margin-left: 0.5rem;
                 }
             }
         }
-        .direct {
-            width: 50%;
-            h3 {
-                text-align: center;
-            }
-            ol {
-                li {
-                    padding: 10px;
-                }
-            }
+        .entries2{
+            width: fit-content;
+            margin: auto;
+            text-align: left;
         }
-    }
+    // .headline {
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     #hero {
+    //         width: 50%;
+    //         border-radius: 10px;
+    //         box-shadow: rgba(185, 139, 69, 0.2) 0px 7px 9px 0px;
+    //     }
+    // }
+    // .recipe {
+    //     width: 50%;
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     div {
+    //         width: 50%;
+    //     }
+    //     ul {
+    //         li {
+    //             list-style: none;
+    //             padding: 10px;
+    //             //"label" is a name of a class for a label
+    //             input[type=checkbox]:checked+label {
+    //                 color: grey;
+    //             }
+    //         }
+    //     }
+    //     .direct {
+    //         width: 50%;
+    //         h3 {
+    //             text-align: center;
+    //         }
+    //         ol {
+    //             li {
+    //                 padding: 10px;
+    //             }
+    //         }
+    //     }
+    // }
 }

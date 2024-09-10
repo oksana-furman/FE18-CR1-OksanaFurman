@@ -3,7 +3,7 @@
 $hostname = "127.0.0.1"; 
 $username = "root";
 $password = ""; 
-$dbname = "food_blog";
+$dbname = "food_blog_2";
 
 // $connect = new mysqli($hostname, $username, $password, $dbname);
 

@@ -8,8 +8,10 @@
             <div class="d-flex">
                 <?php
                     if (isset($_SESSION['adm'])) {
-                        echo "<a href='./logout.php?logout' class='user mx-2'>Log Out</a>
-                            <a href='./dashboard.php' class='navLink mx-2'><i class='bi bi-person-circle'></i></a>";
+                        //href='./actions/create.php'
+                        echo "<a class='navLink mx-2 disabled' aria-disabled='true' data-bs-toggle='tooltip' data-bs-title='Work in progress'>Add a new recipe</a>
+                            <a href='./dashboard.php' class='navLink mx-2'><i class='bi bi-person-circle'></i></a>
+                            <a href='./logout.php?logout' class='user mx-2'>Log Out</a>";
                             
                     } elseif (isset($_SESSION['user'])) {
                             echo "<a href='./logout.php?logout' class='user mx-2'>Log Out</a>

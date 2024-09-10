@@ -1,0 +1,57 @@
+.hero{
+    margin: 0;
+    margin-bottom: 3rem;
+    // margin-right: -5rem;
+    padding: 0;
+    height: 30rem;
+    width: 100%;
+    background-image: url("../img/hero2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    .heroText{
+        font-family: 'Great Vibes', cursive;
+        margin: 3rem;
+        // text-shadow: 0 0 3px #fdfdfd;
+        h1{
+            font-size: 5rem;
+        }
+        p{
+            font-size: 2rem;
+        }
+    }
+}
+.heroSmall{
+    position: relative;
+    display: none;
+    background-image: url("../img/small-hero-1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 10rem;
+   
+}
+
+@media screen and (max-width: 991px) {
+    .hero {
+            display: none; 
+    }
+    .heroSmall{
+        display: block;
+    }
+}
+// @media screen and (max-width: 600px) {
+//     .hero {
+//             display: none; 
+//     }
+//     .heroSmall{
+//         display: block;
+//     }
+// }
+
+@media screen and (min-width: 601px) and (max-width: 962px) {
+
+
+}

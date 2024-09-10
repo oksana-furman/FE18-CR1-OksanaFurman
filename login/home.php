@@ -1,7 +1,9 @@
 <?php
     session_start();
-    require "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/db_connect.php";
-    require "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/file_upload.php";
+    require_once "../actions/db_connect.php";
+    require_once "../actions/file_upload.php";
+    // require_once "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/db_connect.php";
+    // require_once "C:/xampp/htdocs/back-end/1/FE18-CR1-OksanaFurman/actions/file_upload.php";
 
     if (isset($_SESSION['adm'])) {
         header("Location: dashboard.php");
@@ -22,18 +24,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile</title>
-    <?php require './folder/boot.php'?>
+    <?php require_once '../folder/boot.php'?>
 </head>
 <body>
 <div class="wrap">
     <header>
-        <?php require "./navbar.php" ?>
+        <?php require_once "./navbar-login.php" ?>  
     </header>
     <div class="wrapper p-3">
         <h1>Welcome Back, <?= $row['user_name']; ?></h1>
         <div id="hero" class="d-flex align-items-center">
             <div class="imgDiv flex-shrink-0">
-                <img src="./img/<?= $row['picture']; ?>" alt="<?= $row['user_name']; ?>" class="userImage">
+                <img src="../uploads/<?= $row['picture']; ?>" alt="<?= $row['user_name']; ?>" class="userImage">
             </div>
             <div class="txtDiv flex-grow-1 ms-3">
                 <p>Hello, <?= $row['user_name']; ?>!</p>
@@ -43,7 +45,7 @@
             <div></div>
         </div>
     </div>
-    <?php require "./folder/footer.php" ?> 
+    <?php require_once "../folder/footer.php" ?> 
     </div>
 </body>
 </html>

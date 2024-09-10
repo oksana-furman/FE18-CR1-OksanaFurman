@@ -1,15 +1,16 @@
 @media screen and (min-width: 480px) and (max-width: 600px) {
-    .container {
-        display: grid;
-        grid-template-rows: repeat(12, 1fr);
-        grid-template-columns: 1, 1fr;
-    }
+    // .container {
+    //     display: grid;
+    //     grid-template-rows: repeat(12, 1fr);
+    //     grid-template-columns: 1, 1fr;
+    // }
 }
 
 @media screen and (min-width: 601px) and (max-width: 962px) {
-     .container {
-        display: grid;
-        grid-template-rows: repeat(6, 1fr);
-        grid-template-columns: repeat(2, 1fr);
-    }
+    //  .container {
+    //     display: grid;
+    //     grid-template-rows: repeat(6, 1fr);
+    //     grid-template-columns: repeat(2, 1fr);
+        
+    // }
 }

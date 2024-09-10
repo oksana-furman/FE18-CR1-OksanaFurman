@@ -1,73 +1,224 @@
-.wrap{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+$text-nav: rgb(115, 14, 29);
+$text-nav-dark: rgb(83, 19, 30);
+$text-dark: rgb(17, 4, 6);
+$text-nav-light: rgb(155, 39, 56);
+$bg-nav: rgb(248, 209, 158);
+$user: rgba(214, 115, 22, 0.645);
+$bg-nav-hover: rgba(252, 230, 203, 0.966);
+$bg-body: rgb(250, 247, 244);
+
+.container{
     margin: 0;
-    padding: 0;
-}
-.wrapper{
-    margin: 0;
-    padding: 0;
-    flex: 1;
-    margin: auto;
-    width: 100%;
+    padding: 0px 0px !important;
+    height: fit-content;
     display: flex;
-    flex-direction: column;
-    h1{
-        color: $text-nav;
-        text-align: center;
-        // font-family: 'Quicksand', sans-serif;
-        font-family: 'Great Vibes', cursive;
-        font-weight: bolder;
-        margin-top: 3rem;
-    }
-    #hero {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        background: rgb(2, 0, 36);
-        background: linear-gradient(24deg, $text-nav 0%, $bg-nav 100%);
-        .imgDiv{
-            width: 50%;
-            .userImage {
-            height: 10rem;
-            width: 10rem;
-            border-radius: 50%;
-            margin: 3rem;
-            }
+    justify-content: center;
+        .btn{
+            margin-top: 0.5rem;
         }
-        .txtDiv{
-            // a{
-            //     text-decoration: none;
-            //     color: white;
-            //     font-size: x-large;
-            //     margin-right: 2rem;
-            // }
-            // a:hover{
-            //     color: rgb(167, 167, 167);
-            // }
-            .btn{
-                color: $bg-nav;
-                border: 1px solid $bg-nav;
-            }
-            .btn:hover{
-                background-color: $bg-nav;
-                color: $text-nav;
-                border: 1px solid $text-nav;
-            }
-            p{
-                font-family: 'Quicksand', sans-serif;
-                color: $bg-nav;
-                font-size: xx-large;
-            }
-        }
-    }
-    .users{
-        margin: auto;
+    .form-group{
+        height: 100%;
         width: 75%;
+        h2{
+            margin: 2rem;
+        }
+        .btns{
+            text-align: center;
+            margin-bottom: 1rem;
+            .btn{
+                margin-top: 0.5rem;
+            }
+        }
+        
+        .link{
+            text-decoration: none;
+            color: $text-nav;
+        }
+        .link:hover{
+            text-decoration: underline;
+        }
 
     }
 }
+.wrap{
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    .wrapper{
+        margin: 10px 0 auto;
+        padding: 0;
+        flex: 1;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        // h1{
+        //     color: $text-nav-dark;
+        //     text-align: center;
+        //     // font-family: 'Quicksand', sans-serif;
+        //     font-family: 'Great Vibes', cursive;
+        //     font-weight: bolder;
+        //     margin-top: 3rem;
+        // }
+        #hero {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            background-image: url("../img/hero2.jpg");
+            background-repeat: no-repeat;
+            background-position: left;
+            transform: rotateY(180deg);
+            // background: rgb(2, 0, 36);
+            // background: linear-gradient(24deg, $text-nav 0%, $bg-nav 100%);
+            .inner{
+                transform: rotateY(180deg);
+                background-color: rgb(255, 255, 255, 0.5);
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                margin: 0 auto;
+                padding: 1rem;
+                .imgDiv{
+                    display: flex;
+                    justify-content: end;
+                    align-items: center;
+                    width: 50%;
+                    .userImage {
+                    height: 10rem;
+                    width: 10rem;
+                    border-radius: 50%;
+                    margin: 3rem;
+                    }
+                }
+                .txtDiv{
+                    // .btn{
+                    //     color: $bg-nav;
+                    //     border: 1px solid $bg-nav;
+                    // }
+                    // .btn:hover{
+                    //     background-color: $bg-nav;
+                    //     color: $text-nav;
+                    //     border: 1px solid $text-nav;
+                    // }
+                    display: flex;
+                    flex-direction: row;
+                    .text{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        margin: 1rem auto;
+                    p{
+                        font-family: 'Quicksand', sans-serif;
+                        // color: $text-nav-dark;
+                        color: $text-dark;
+                        font-size: xx-large;
+                        } 
+                    }
+                    .but{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        margin: 1rem auto;
+                    }
+                }
+            }
+        }
+        .userWrap{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .users{
+                margin: auto;
+                width: 75%;
+                display: block;
+            }
+            .usersSmall{
+                display: none;
+            }
+        }
+        
+    }
+}
+@media screen  and (max-width: 991px) {
+        body {
+            .wrap{
+                .wrapper{
+                    #hero{
+                        .inner{
+                            .imgDiv{
+                                .userImage{
+                                    margin: 1rem auto;
+                                }
+                            }
+                        }
+                    }
+                    .userWrap{
+                        .users{
+                            margin: auto;
+                            width: 75%;
+                            display: none;
+                        }
+                        .usersSmall{
+                            margin: auto;
+                            width: 75%;
+                            display: block;
+                        } 
+                    }
+                }
+            }
+           .container{
+            width: 100%;
+                .form-group{
+                    width: 75%;
+                    }
+            } 
+            // .container-recipe{
+            //     width: 100%;
+            //     margin: 0;
+            //     padding: 0;
+            //     .main{
+            //         width: 100%;
+            //         margin: 0;
+            //         padding: 0;
+            //         .imageDiv{
+            //             width: 80%;
+            //             height: 20rem;
+            //             overflow: hidden;
+            //             img{
+                            
+            //             }
+            //         }
+            //     }
+            // }
+        }
+    }
+    @media screen  and (max-width: 768px) {
+        body {
+            .wrap{
+                .wrapper{
+                    #hero{
+                        width: 100%;
+                        .inner{
+                            .imgDiv{
+                                margin: 0;
+                                padding: 0;
+                                width: 30%;
+                                .userImage{
+                                    margin: 0.5rem auto;
+                                    width: 5rem;
+                                    height: 5rem;
+                                }
+                            }
+                            .txtDiv{
+                                margin: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }

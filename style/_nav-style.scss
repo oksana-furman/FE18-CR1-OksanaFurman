@@ -1,62 +1,24 @@
-$text-nav: rgb(133, 12, 30);
+$text-nav: rgb(115, 14, 29);
+$text-nav-light: rgb(168, 25, 47);
+$text-nav-dark: rgb(83, 19, 30);
 $bg-nav: rgb(248, 209, 158);
 $user: rgba(214, 115, 22, 0.645);
 $bg-nav-hover: rgba(252, 230, 203, 0.966);
-$bg-body: antiquewhite;
+$bg-body: rgb(250, 247, 244);
 .navbar {
-    font-family: 'Great Vibes', cursive;
-    overflow: hidden;
-    background-color: rgb(248, 209, 158);
-    display: flex;
-    justify-content: space-around;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    #logoLink {
-        text-decoration: none;
+    // font-family: 'Great Vibes', cursive;
+    font-family: 'Quicksand', sans-serif;
+    background-color: $bg-body;
+    li, .dropdown-menu {
+        background-color: $bg-body;
     }
-    #logoLink:hover {
-        transform: scale(1.2);
-        transition: width 2s, height 2s, transform 1s;
-    }
-    .navLink {
-        font-size: 30px;
+    #logoLink, .nav-link, .dropdown-item, .navLink, .user {
         color: $text-nav;
-        padding: 14px 16px;
-        // text-align: center;
         text-decoration: none;
-        color: $text-nav;
-        display: block;
-        text-align: left;
+        color: $text-nav-dark;
     }
-    .navLink:hover {
-        background-color: $bg-nav-hover;
-        border-radius: 10px;
-    }
-    #logoText {
-        font-size: 30px;
-        color: $text-nav;
-        padding: 14px 16px;
-        text-align: center;
-        text-decoration: none;
-    }
-
-    .user{
-        font-family: 'Quicksand', sans-serif;
-        font-size: x-large;
-        color: $text-nav;
-        display: block;
-        text-align: left;
-        margin-top: 1rem;
-        text-decoration: none;
-
-    }
-    .user:hover{
-        color: $user;
+    #logoLink:hover, .nav-link:hover, .dropdown-item:hover, .navLink:hover, .user:hover {
+        color: $text-nav-light;
+        background-color: $bg-body;
     }
 }
-
-
-
-// #something {
-//     color: blue;
-// }

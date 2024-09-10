@@ -28,9 +28,9 @@
                         $fileNewName = uniqid('') . '.' . $fileExtention;
 
                         // destination is not from this file but from files we're using file update in
-                        $destination = "./uploads/$fileNewName";
+                        $destination = "../uploads/$fileNewName";
                         if ($scr == "cake") {
-                            $destination = "../uploads/$fileNewName";
+                            $destination = "../img/$fileNewName";
                         }
 
                         if (move_uploaded_file($fileTempName, $destination)) {
